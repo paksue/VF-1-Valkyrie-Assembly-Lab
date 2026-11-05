@@ -37,3 +37,8 @@ The reduction in **this one error** is 97.5%, not a model-wide fidelity score. F
 - No continuous GERWALK/Battroid transformation rig in N2. Existing K/L2 studies are separate and remain unmodified.
 
 The existing \`dist/\` site and production GLB are unchanged. The present work is on a draft pull request/feature branch. No accuracy certification has been issued.
+
+## CI tool verification
+- The GitHub Actions \`VF-1J verification tools\` job passed for commit \`fe3a2c8\`, run [42132511073](https://github.com/paksue/VF-1-Valkyrie-Assembly-Lab/actions/runs/42132511073).
+- CI covered Python dependencies, five synthetic mask-comparison tests and syntax compilation of \`qa/render_views.py\`.
+- CI **did not** execute Blender itself, compare licensed reference drawings, or validate transformation. Those remain independent gates.
