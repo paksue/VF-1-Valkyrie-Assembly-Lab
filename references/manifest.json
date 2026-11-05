@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "target": "1982 TV-series VF-1J, Hikaru Ichijo, white/red",
+  "policy": "Metadata/links only. References have distinct evidentiary roles. Do not download or redistribute images automatically. Verify the exact view/variant and licensing before use.",
+  "candidates": [
+    {
+      "id": "tv-line-art",
+      "url": "https://www.macross2.net/m3/sdfmacross/vf-1j-valkyrie.htm",
+      "role": "TV-series design drawings, visual silhouette and variant identification",
+      "status": "candidate_needs_image_viewpoint_registration",
+      "priority": 1
+    },
+    {
+      "id": "dx-chogokin",
+      "url": "https://tamashiiweb.com/item/12634/?wovn=en",
+      "role": "physical transformation engineering and articulation study",
+      "status": "candidate",
+      "priority": 2
+    },
+    {
+      "id": "vf1j-product",
+      "url": "https://tamashiiweb.com/item/15096/?wovn=en",
+      "role": "physical VF-1J visual/variant reference",
+      "status": "candidate",
+      "priority": 2
+    },
+    {
+      "id": "transform-guide",
+      "url": "https://macross2.net/m3/macrosstechman/tech-transformationguides.html",
+      "role": "transformation illustration reference (verify variant and provenance)",
+      "status": "candidate",
+      "priority": 2
+    }
+  ],
+  "views": [
+    "top",
+    "side",
+    "front",
+    "rear",
+    "quarter"
+  ],
+  "note": "Reference image masks/crops are intentionally excluded. Lock exact reference file and coordinate frame before calculating IoU."
+}
