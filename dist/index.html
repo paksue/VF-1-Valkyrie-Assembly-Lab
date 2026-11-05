@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#edf0ec">
+  <meta name="description" content="Take the VF-1J Valkyrie apart into 424 independent modeled elements. Inspect 24 modeled assemblies, reassemble the fighter and transform it into GERWALK or Battroid. Export the 3D model or take the complete workshop with you.">
+  <title>VF-1 · Valkyrie Assembly Lab</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23edf0ec'/%3E%3Ctext x='11' y='49' font-family='Arial' font-size='48' font-weight='bold' fill='%23d73525'%3EV%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./studio.css">
+</head>
+<body>
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"><defs>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+  <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M8 8l-5-5m13 5 5-5M8 16l-5 5m13-5 5 5"/></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5ZM3 12l9 5 9-5M3 16l9 5 9-5"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10 9-5m-9 5L3 7m9 5v10M7.5 4.5l9 5"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M20 12 12 4H4v8l8 8 8-8ZM8 8h.01"/></symbol>
+  <symbol id="i-orbit" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="5" transform="rotate(-30 12 12)"/><path d="M12 9v6m-3-3h6"/></symbol>
+  <symbol id="i-focus" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/><circle cx="12" cy="12" r="4"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 4 12 8-12 8V4Z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 4v16M16 4v16"/></symbol>
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="m12 2 2 8 8 5v3l-8-3v5l3 2H7l3-2v-5l-8 3v-3l8-5 2-8Z"/></symbol>
+  <symbol id="i-gerwalk" viewBox="0 0 24 24"><path d="m12 2 2 6 7 3v2l-7-1M12 2l-2 6-7 3v2l7-1m-3 1-1 4 3 2-3 3H3m14-9 1 4-3 2 3 3h3M9 10h6"/></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24"><path d="M10 1v3m4-3v3M9 4h6v5H9V4ZM7 10h10v6H7v-6ZM5 11H2v6h3m14-6h3v6h-3M8 17v5H5m11-5v5h3M11 6h2"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 8a2.5 2.5 0 0 1 5 .5c0 2-2.5 2-2.5 4m0 3v.1"/></symbol>
+</defs></svg>
+<main id="app">
+  <header class="topbar">
+    <a class="wordmark" href="./" aria-label="Valkyrie Lab home"><span class="brand-symbol" aria-hidden="true">V/</span><span><strong>VALKYRIE LAB</strong><small>MACROSS · VARIABLE FIGHTER</small></span></a>
+    <div class="topbar-center">EXPLODED ASSEMBLY EXPLORER</div>
+    <div class="top-actions">
+      <button class="plain-button help-button" id="help" aria-label="Controls and model information"><svg><use href="#i-help"/></svg></button>
+      <button class="plain-button" id="export"><svg><use href="#i-download"/></svg> Export <span class="desktop-only">project</span></button>
+    </div>
+  </header>
+  <div class="workbench">
+    <section class="viewport" aria-label="Interactive 3D Valkyrie model">
+      <div id="scene" tabindex="0" role="application" aria-label="3D model. Drag to orbit, pinch or scroll to zoom. Select an assembly by tapping it or using the assembly list."></div>
+      <div class="viewport-header"><div class="eyebrow">01 / VARIABLE FIGHTER</div><h1>VF–1<span>J</span></h1><div class="model-name">VALKYRIE</div><div class="livery"><i></i> HIKARU ICHIJO · WHITE / RED</div></div>
+      <div class="viewport-meta">INTERACTIVE ASSEMBLY STUDY</div>
+      <div class="mobile-modes" style="display:none" role="group" aria-label="Transformation mode"><button data-mode="0" class="active" aria-pressed="true">FIGHTER</button><button data-mode="1" aria-pressed="false">GERWALK</button><button data-mode="2" aria-pressed="false">BATTROID</button></div>
+      <div id="labels"></div><div id="catalog-note" hidden>ALL 424 ELEMENTS<span>Normalized scale · select any piece · pinch to zoom</span></div>
+      <div class="view-tools" role="group" aria-label="View tools">
+        <button id="labels-toggle" class="icon-button" aria-label="Show assembly labels" aria-pressed="false" title="Assembly labels · L"><svg><use href="#i-tag"/></svg></button>
+        <button id="wire-toggle" class="icon-button" aria-label="Show wireframe" aria-pressed="false" title="Wireframe · W"><svg><use href="#i-box"/></svg></button>
+        <button id="orbit-toggle" class="icon-button" aria-label="Auto rotate model" aria-pressed="false" title="Auto rotate · A"><svg><use href="#i-orbit"/></svg></button>
+        <button id="fit" class="icon-button" aria-label="Fit model in view" title="Fit view · F"><svg><use href="#i-focus"/></svg></button>
+      </div>
+      <div class="orientation" role="group" aria-label="Camera angle"><button data-camera="perspective" class="active" aria-pressed="true">PERSPECTIVE</button><button data-camera="top" aria-pressed="false">TOP</button><button data-camera="side" aria-pressed="false">SIDE</button></div>
+      <button class="mobile-panel-toggle" id="assemblies-toggle" aria-expanded="false" aria-controls="assemblies-panel"><svg><use href="#i-layers"/></svg> 24 ASSEMBLIES</button>
+      <article class="selection-card" id="selection-card" hidden aria-live="polite"><div class="selection-top"><span id="selected-code">ASSEMBLY 01</span><button id="selection-close" aria-label="Clear selection">×</button></div><h3 id="selected-name"></h3><p id="selected-description"></p><div class="selection-actions"><button id="detach">Detach</button><button id="isolate" class="secondary" aria-pressed="false">Isolate</button><button id="focus-part" class="secondary">Focus</button></div></article>
+      <div class="viewport-note" id="view-status">24 ASSEMBLIES · FIGHTER</div>
+      <section class="bottom-console" aria-label="Exploded view controls"><div class="explode-title"><strong>EXPLODED VIEW</strong><output id="explode-output" for="explode-range">000%</output></div><div class="slider-row"><span>ASSEMBLED</span><input class="range" id="explode-range" type="range" min="0" max="100" value="0" step="1" aria-label="Assembly separation"><span>EXPLODED</span></div><div class="console-bottom"><div class="control-hint"><span>Drag to orbit</span><span>Scroll / pinch to zoom</span></div><div class="console-buttons"><button id="reassemble"><svg><use href="#i-reset"/></svg>Reassemble</button><button id="explode-all" class="primary"><svg><use href="#i-expand"/></svg><span>Explode model</span></button><button id="catalog-toggle" aria-pressed="false"><svg><use href="#i-layers"/></svg><span>All pieces</span></button></div></div></section>
+      <div class="loading-state" id="loading"><span class="loader"></span><p>PREPARING THE VALKYRIE</p></div>
+      <div class="error-state" id="error" hidden><div><h2>The 3D viewer could not start.</h2><p id="error-message">Refresh the page and check that WebGL is available in your browser.</p><button onclick="location.reload()">Try again</button><p><a href="./assets/vf1-valkyrie.glb" download>Download the animated 3D model</a></p></div></div>
+    </section>
+    <aside class="sidepanel" id="assemblies-panel" aria-label="Model configuration and assemblies">
+      <section class="mode-section"><div class="section-heading">Configuration <span class="count">03 MODES</span></div><div class="mode-switch" role="group" aria-label="Transformation mode"><button class="active" data-mode="0" aria-pressed="true"><svg><use href="#i-plane"/></svg>FIGHTER</button><button data-mode="1" aria-pressed="false"><svg><use href="#i-gerwalk"/></svg>GERWALK</button><button data-mode="2" aria-pressed="false"><svg><use href="#i-bot"/></svg>BATTROID</button></div><p class="mode-caption" id="mode-caption">Wings extended. Arms and head stowed beneath the fuselage.</p><button class="mode-play" id="transform-play"><svg><use href="#i-play"/></svg><span>Play transformation</span></button></section>
+      <section class="assembly-section"><div class="section-heading">Assemblies <span class="count">24 ASSEMBLIES</span></div><div class="assembly-list" id="assembly-list"></div></section>
+      <footer class="panel-footer"><div class="legend"><span><i></i>SELECTED</span><span><i></i>INSPECTABLE</span></div><p>Original fan model · Interpretive mechanics<br><a href="https://tamashiiweb.com/item/15096/?wovn=en" target="_blank" rel="noopener noreferrer">VF-1J design reference ↗</a></p></footer>
+    </aside>
+  </div>
+</main>
+<dialog class="modal" id="export-dialog"><button class="close-modal" aria-label="Close export dialog">×</button><div class="eyebrow">TAKE IT WITH YOU</div><h2 style="margin-top:14px">Export the Valkyrie.</h2><p>Keep the model, the animations, or the complete interactive workshop.</p><a class="export-option" href="./assets/vf1-valkyrie.glb" download="vf1-valkyrie-animated.glb"><svg><use href="#i-box"/></svg><span><strong>Animated 3D model</strong><small>GLB · 424 separate elements · 24 assemblies · 4 animation clips<br>For Blender, Three.js and other glTF tools.</small></span></a><button class="export-option" id="export-current"><svg><use href="#i-focus"/></svg><span><strong>Current view as a 3D model</strong><small>Keep this pose, exploded view or isolated assembly.</small></span></button><button class="export-option" id="export-website"><svg><use href="#i-download"/></svg><span><strong>Complete portable website</strong><small>ZIP · Source, local assets and a quick-start guide.<br>Ready for any static website host.</small></span></button><p class="fineprint">Original interpretation of the VF-1J. Macross characters and designs belong to their respective rights holders.</p></dialog>
+<dialog class="modal" id="help-dialog"><button class="close-modal" aria-label="Close help dialog">×</button><h2>At your fingertips.</h2><p>Drag to orbit. Scroll or pinch to zoom. Right-drag or use two fingers to pan. Tap an assembly to inspect, detach or isolate it.</p><div class="key-grid"><kbd>1–3</kbd><span>Fighter / GERWALK / Battroid</span><kbd>Space</kbd><span>Explode or reassemble</span><kbd>R</kbd><span>Reset the workshop</span><kbd>F</kbd><span>Fit the model in view</span><kbd>L</kbd><span>Toggle assembly labels</span><kbd>W</kbd><span>Toggle wireframe</span><kbd>A</kbd><span>Toggle auto rotation</span><kbd>Esc</kbd><span>Clear selection</span></div><p class="fineprint">This is an original, stylized model and an illustrative transformation, rather than a reconstruction of a production toy mechanism. Reference: <a href="https://tamashiiweb.com/item/15096/?wovn=en" target="_blank" rel="noopener noreferrer">Bandai / Tamashii Nations VF-1J</a>.</p></dialog>
+<div id="toast" role="status" hidden></div>
+<noscript><div class="error-state"><div><h2>Enable JavaScript to explore.</h2><p>You can also <a href="./assets/vf1-valkyrie.glb" download>download the animated 3D model</a>.</p></div></div></noscript>
+<script>
+  window.addEventListener('error',function(e){if(document.getElementById('loading')&&!document.getElementById('loading').hidden){document.getElementById('loading').hidden=true;document.getElementById('error').hidden=false;}});
+</script>
+<script type="module" src="./viewer.js"></script>
+</body>
+</html>

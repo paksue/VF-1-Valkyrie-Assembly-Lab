@@ -1,0 +1,9 @@
+{
+  "name": "valkyrie-assembly-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "model": "node scripts/build-model.mjs"
+  }
+}
