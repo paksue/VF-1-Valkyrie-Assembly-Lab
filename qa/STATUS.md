@@ -77,3 +77,16 @@ Current approved work is **only a draft QA branch**; the deployed Three.js works
 - [Reproducible N5 source](../blender/rebuild_N5.py) · [Full observed QA report](runs/2026-11-05-n4-n5-intake-geometry.json).
 
 **Remaining:** independently evaluate against a locked VF-1J front and side technical drawing, rebuild actual engine nacelle casing geometry and other Fighter inaccuracies, then engineer a transformation rig and website GLB. No new model has been deployed to \`main\`.
+
+## N6 — Full nacelle side armor contour, 2026-11-05
+
+- Using the live Omarchy→Windows Blender 5.2 background MCP bridge, **N6** was saved as an editable \`VF1J_rebuild_N6.blend\`. Existing active Blender UI scene remained a separate \`NeonCity2049\` file and was not replaced.
+- Each nacelle/engine-leg housing now uses **13 cross-sectional loft stations** (N5 had 6) and a separately grouped, **ten-point removable side armor panel**, plus side panel seams and a circular service ring. The original N5 rectangular intake ducts remain intact.
+- Original VF-1A shared-airframe source drawing was used for 3D source-coordinate top and side overlays; VF-1J-specific color reference remains a separate source. Drawings are local only, not redistributed in Git.
+- An actual Blender QA script checked the new panel's analytic shell distance. The initial center facet sat 1.1 mm inside the theoretical shell; this was corrected and rerendered. Both final panels now sit **14–22 mm outside the shell**, with no analytic clipping indicated.
+- **Geometry unchanged overall:** 14.2337 m length; 14.7852 m extended frame-30 span. 45 meshes in N5 versus 47 in N6.
+- N5→N6 reference-coordinate *self-regression* (not Macross source IoU): top IoU **0.9974803** (87 changed half-resolution pixels); side IoU **0.9972218** (82 changed pixels).
+- [N5 side closeup](runs/2026-11-05-n5-engine-side.jpg) vs [N6 side closeup](runs/2026-11-05-n6-engine-side.jpg); [N6 full side](runs/2026-11-05-n6-fighter-side.jpg); [N6 three-quarter](runs/2026-11-05-n6-perspective.jpg).
+- [Source script](../blender/rebuild_N6.py) · [verified QA report](runs/2026-11-05-n5-n6-engine-side.json).
+- **Open:** independent VF-1J-specific view registration and contour score, real three-mode rig and collision validation, GLB export/website integration. No updates to \`dist/\` or \`main\`.
+
