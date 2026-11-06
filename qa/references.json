@@ -1,0 +1,42 @@
+{
+  "target": "VF-1J TV series, Hikaru Ichijo, white/red 101",
+  "coordinate_system": "X right, nose -Y, Z up",
+  "dimensions": {
+    "fighter_length_m": 14.23,
+    "fully_extended_wingspan_m": 14.78,
+    "source": "https://macross.anime.net/wiki/VF-1_Valkyrie",
+    "note": "fictional specifications; check wing sweep angle and reference edition"
+  },
+  "sources": [
+    {
+      "id": "tv_line_art",
+      "url": "https://www.macross2.net/m3/sdfmacross/vf-1j-valkyrie.htm",
+      "priority": 1,
+      "use": "original visual identity and orthographic line-art",
+      "license": "reference only; check rights before saving images"
+    },
+    {
+      "id": "dx_chogokin",
+      "url": "https://tamashiiweb.com/item/12634/?wovn=en",
+      "priority": 2,
+      "use": "physical toy transformation reference; not TV-accurate in every dimension",
+      "license": "reference only"
+    },
+    {
+      "id": "macross_compendium",
+      "url": "https://macross.anime.net/wiki/VF-1_Valkyrie",
+      "priority": 2,
+      "use": "in-universe technical dimensions",
+      "license": "text reference"
+    },
+    {
+      "id": "hasegawa",
+      "url": "https://www.hasegawa-model.co.jp",
+      "priority": 3,
+      "use": "aircraft surface-detail inspiration, not defining silhouette",
+      "license": "reference only"
+    }
+  ],
+  "locked_comparisons": [],
+  "note": "No canonical, same-scale orthographic source masks selected yet. Do not report visual accuracy scores until registered references exist."
+}

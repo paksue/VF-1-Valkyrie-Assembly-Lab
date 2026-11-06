@@ -1,0 +1,63 @@
+{
+  "run_date": "2026-11-05",
+  "verification_method": "Blender 5.2 background subprocess over MCP tunnel, comparing actual evaluated mesh vertices at frames 1,15,30; source visual audit",
+  "source_reference": "https://macross.anime.net/wiki/VF-1_Valkyrie",
+  "visual_reference": "https://macross2.net/m3/sdfmacross/vf-1j-valkyrie/schematic-vf1j-tias-all.png",
+  "specimen": "Independent traced Fighter blockout using VF-1A common-airframe schematic; VF-1J markings/head placeholder",
+  "old_checkpoint": "N1",
+  "new_checkpoint": "N2",
+  "change": "Swing-wing final keyframe rotation from 24 to 26.5 degrees per side; no other geometric change",
+  "metric_units": "meters",
+  "observations": {
+    "N1": {
+      "frame1": {
+        "length": 14.2337,
+        "width": 12.4966,
+        "height": 3.6788
+      },
+      "frame30": {
+        "length": 14.2337,
+        "width": 14.5704,
+        "height": 3.6788
+      }
+    },
+    "N2": {
+      "frame1": {
+        "length": 14.2337,
+        "width": 12.4966,
+        "height": 3.6788
+      },
+      "frame30": {
+        "length": 14.2337,
+        "width": 14.7852,
+        "height": 3.6788
+      }
+    },
+    "reference": {
+      "fighter_length": 14.23,
+      "fully_extended_wingspan": 14.78
+    },
+    "frame30_span_error_before": 0.2096,
+    "frame30_span_error_after": 0.0052,
+    "reduction_fraction": 0.9752
+  },
+  "evidence": {
+    "N1_blend_sha256": "b872fc960569a1135fe9b7bfa7b68574a66ee1a1ce363a0eb4fc6196039498ff",
+    "N1_top_frame30_sha256": "016b784f27a71167683b4eefee520adddcfc92c6fdea9c54048d216af0169eed",
+    "N2_top_frame30_sha256": "59ee8eb179162bd3a81d252a4efe88b468c5405fa0e1c8bd1e048368a65baf57",
+    "artifacts": "Windows BlenderAI Documents/VF1J_reference_build/rebuild_N1 and rebuild_N2 directories",
+    "source_code": "blender/rebuild_N2.py",
+    "geometry_reports": "geometry_inspection.json in each local checkpoint folder"
+  },
+  "visual_review": [
+    "Four N1 Fighter views inspected. N2 top-view extended-wing render inspected. Nose/body seam too pronounced; intake, engines, fins, and wing markings are blockout level; no geometry fidelity grade."
+  ],
+  "unverified": [
+    "No licensed/registered VF-1J orthographic silhouette mask; no silhouette IoU computed",
+    "No cross-mode rig for N2",
+    "No colliding linkage check",
+    "No exported revised GLB in the website",
+    "No CI test result observed at time of report"
+  ],
+  "conclusion": "Measured extended span improved in N2; entire model is not certified reference-accurate."
+}

@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-05",
+  "checkpoint": "N6",
+  "intended_variant": "VF-1J Hikaru Ichijo 1982 TV series",
+  "scope": "Fighter geometry only; contoured nacelle leg shell and detachable side panel based on original common-airframe side drawing",
+  "sources": [
+    {
+      "url": "https://www.macross2.net/m3/sdfmacross/vf-1a-valkyrie/vf-1a-schematics.png",
+      "purpose": "VF-1 shared-airframe top and side lineart",
+      "redistributed": false
+    },
+    {
+      "url": "https://macross2.net/m3/sdfmacross/vf-1j-valkyrie/schematic-vf1j-tias-all.png",
+      "purpose": "VF-1J-specific visual design",
+      "redistributed": false
+    }
+  ],
+  "blender": "5.2.0 LTS",
+  "computer": "Windows, BlenderAI restricted account; headless background build accessed through Omarchy DevSpace Blender MCP",
+  "editable_model": "C:\\Users\\BlenderAI\\Documents\\VF1J_reference_build\\rebuild_N6\\VF1J_rebuild_N6.blend",
+  "editable_model_sha256": "31287ed8bcb963021716c577f7ae3ad1aece08027c61c7199a6a406bd87578c6",
+  "source_script": "blender/rebuild_N6.py",
+  "created": [
+    "13-station contoured main shell per leg (versus 6-station N5)",
+    "separately named removable side armor with 10-point outline per side",
+    "side-engine circular service cover trim",
+    "forward and rear armor-separation lines"
+  ],
+  "preserved": [
+    "N5 rounded-rectangular hollow intake mouths and ducts",
+    "26.5-degree wing sweep pose",
+    "N5 Fighter assembly hierarchy and geometry outside nacelles"
+  ],
+  "measured": {
+    "total_mesh_objects_previous": 45,
+    "total_mesh_objects_n6": 47,
+    "length_m_n5": 14.2337,
+    "length_m_n6": 14.2337,
+    "max_span_m_frame30_n5": 14.7852,
+    "max_span_m_frame30_n6": 14.7852,
+    "new_armor_casing_stations": 13,
+    "armor_panel_outline_vertices_each": 10,
+    "panel_rig_parent": "JOINT LEFT/RIGHT nacelle knee frame - unrigged",
+    "panel_gap_m_each": {
+      "min": 0.014,
+      "max": 0.022,
+      "avg": 0.01473
+    },
+    "shape_self_regression": {
+      "method": "evaluated triangle projections at precisely matched VF-1A reference pixel coordinates, downsampled to half resolution; compares N5 vs N6 model silhouettes only",
+      "top": {
+        "n5_pixels": 34451,
+        "n6_pixels": 34518,
+        "changed_pixels": 87,
+        "self_iou": 0.9974803
+      },
+      "side": {
+        "n5_pixels": 29447,
+        "n6_pixels": 29503,
+        "changed_pixels": 82,
+        "self_iou": 0.9972218
+      }
+    }
+  },
+  "observed_artifacts": [
+    "N5 engine close-up (fixed side camera)",
+    "N6 engine close-up (same side camera)",
+    "N6 Fighter front/top/side/three-quarter renders",
+    "N6 source registered top/side drawings projected overlay (not distributed)"
+  ],
+  "visual_review": "New N6 side panel, side cut lines, and service circle visibly resemble features on the original common-airframe engine-side reference; detailed accuracy not yet independently quantified.",
+  "caveats": [
+    "Self-IoU preserves overall silhouette, but DOES NOT quantify correctness vs original source drawing",
+    "All 3D cross sections between line art contours are inferred",
+    "No actual GERWALK or Battroid rig, no intermediate-motion collision tests",
+    "No new production GLB generated or deployed",
+    "Panel gap is measured against analytic loft surface, not full mesh collision simulation",
+    "Original source art kept local for review; not published to GitHub"
+  ],
+  "status": "N6 isolated Blender geometry checkpoint accepted for next modeling phase; GitHub main and website unchanged"
+}

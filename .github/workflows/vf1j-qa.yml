@@ -1,0 +1,33 @@
+name: VF-1J verification tools
+
+on:
+  push:
+    branches:
+      - "vf1j-reference-qa-*"
+    paths:
+      - "qa/**"
+      - "blender/**"
+      - ".github/workflows/vf1j-qa.yml"
+  pull_request:
+    paths:
+      - "qa/**"
+      - "blender/**"
+      - ".github/workflows/vf1j-qa.yml"
+  workflow_dispatch:
+
+jobs:
+  qa-tools:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install offline visual-check dependencies
+        run: python -m pip install -r qa/requirements.txt
+      - name: Unit test mask metrics
+        run: python -m unittest discover -s qa -p 'test_*.py' -v
+      - name: Syntax check Blender background runner
+        run: python -m py_compile qa/render_views.py qa/project_reference_N3.py qa/project_side_N3.py blender/rebuild_N2.py blender/rebuild_N3.py blender/rebuild_N4.py blender/rebuild_N5.py blender/rebuild_N6.py qa/project_reference_N6.py qa/project_side_N6.py qa/validate_N5_N6.py qa/render_engine_N5_N6.py blender/rig_N7_from_N6.py qa/validate_N7_rig.py qa/project_reference_N5.py qa/project_side_N5.py qa/validate_N4_N5.py qa/render_intakes_N4_N5.py

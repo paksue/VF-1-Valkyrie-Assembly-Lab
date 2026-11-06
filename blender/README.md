@@ -1,0 +1,89 @@
+# Blender source checkpoints
+
+## Reproducible independent Fighter blockout
+
+- [rebuild_N2.py](rebuild_N2.py) generates an **editable** Fighter-only Blender scene. It derives the common VF-1 airframe from a VF-1A technical five-view drawing and retains provisional VF-1J details. This is not a completed VF-1J or three-mode rig.
+- Build in a **separate background Blender 5.2** process, using a dedicated restricted account/workspace:
+
+  \`blender --background --factory-startup --python blender/rebuild_N2.py\`
+
+- The script writes \`blender/rebuild_N2/VF1J_rebuild_N2.blend\`, \`fighter_{top,front,side,threequarter}.png\` and \`reference_landmarks.json\`. When executed through Omarchy's Blender-MCP bridge, \`__file__\` is overridden by the Windows runner and output is inside \`C:\Users\BlenderAI\Documents\VF1J_reference_build\rebuild_N2\`.
+- The wing-sweep frame-30 keyframe was tuned from 24° (N1) to 26.5° (N2) so the **actual evaluated model** wingspan moved from 14.5704 m to 14.7852 m. The target fully extended span is 14.78 m. This is an empirical tuning parameter, not proof of an exact toy-joint sweep angle.
+- See [evidence JSON](../qa/runs/2026-11-05-n1-n2-wing-iteration.json).
+
+**Never** execute this script inside a live user scene: it calls \`bpy.ops.wm.read_factory_settings(use_empty=True)\`. Use background Blender, not the running GUI process.
+
+## Remaining
+- Replace VF-1A shared-airframe proxy with locked VF-1J-specific orthographic source comparison and visually review all four projections.
+- Improve nose-to-cockpit transitions, intakes, nacelles, wing planform, tail, head geometry and mechanical subdivisions.
+- Build actual GERWALK/Battroid transformation; current N2 does **only** Fighter mode and an illustrative sweep animation.
+- Validate staged 3D geometry, render masks and multiple angle overlays before changing the production GLB.
+
+The website under \`dist/\` has not been modified.
+
+## Current candidate — N3 (visual marking pass)
+
+[N3 Blender source](rebuild_N3.py) was built with Blender 5.2 over the live Omarchy→Windows MCP connection in an isolated background process. Editable output is on Windows:
+\`C:\Users\BlenderAI\Documents\VF1J_reference_build\rebuild_N3\VF1J_rebuild_N3.blend\`.
+
+**What changed from N2:** wider red wing stripes and the more prominent chevron across the white shoulder-roof, as guided by the original VF-1J color sheet. No new transformation rig or major geometry. The evaluated Fighter length is 14.2337 m and extended span 14.7852 m as before.
+
+**Actual N3 renders:**
+- [Top view](../qa/runs/2026-11-05-n3-top.jpg)
+- [Three-quarter](../qa/runs/2026-11-05-n3-perspective.jpg)
+- [N2 top before](../qa/runs/2026-11-05-n2-top.jpg)
+
+See the [real top + side reference-registration method](../qa/REFERENCE_REGISTRATION.md). The next geometry pass should correct nacelle/intake and rear underside proportions from reference drawings, then revisit head and mechanism.
+
+## Latest candidate — N5 (real intake topology)
+
+[N5 source generator](rebuild_N5.py) builds in isolated Blender 5.2, saving:
+
+\`C:\Users\BlenderAI\Documents\VF1J_reference_build\rebuild_N5\VF1J_rebuild_N5.blend\`
+
+N5's changes from N4:
+- Replace painted circular intakes with named **rounded-rectangular rings**, converging wall geometry, and recessed black throats.
+- Remove the engine-shell front cap to leave an actual mouth. The opening is 0.484 m wide × 0.394 m high per side.
+- Reduce the engine nacelle's loft exponent from 0.43 to 0.25, yielding flatter and more angular surfaces.
+- Retain two subtle guide vanes; remove an unsupported vertical divider.
+
+**Actual Blender comparison renders:** [N4 intake closeup](../qa/runs/2026-11-05-n4-intake-closeup.jpg) versus [N5 intake closeup](../qa/runs/2026-11-05-n5-intake-closeup.jpg); [N5 perspective](../qa/runs/2026-11-05-n5-perspective.jpg).
+
+[QA evidence](../qa/runs/2026-11-05-n4-n5-intake-geometry.json): 0 top projected pixels changed, 72 side projected pixels changed, 0 front-cap faces at either intake. This is a **regression check**, not an independently verified Macross-reference fidelity score.
+
+N5 remains Fighter-only. A physically credible GERWALK/Battroid transformation and site GLB export are **not** complete. Model surface details, head, landing gear, nacelle shape and joint clearances remain to be verified against original design art.
+
+## Current candidate — N6: contoured nacelle and separate side armor
+
+The [N6 reproducible Blender generator](rebuild_N6.py) saves a Fighter-only editable asset on Windows:
+
+\`C:\Users\BlenderAI\Documents\VF1J_reference_build\rebuild_N6\VF1J_rebuild_N6.blend\`
+
+Compared with N5, the two engine/leg casings use 13 longitudinal stations instead of six, retain the open rounded-rectangular intakes, and have independent detachable armor-group empties parented to the existing unrigged nacelle joints. Side panel details follow the original VF-1 common-airframe reference as a **manual interpretation**, not an exact toy scan.
+
+The new side panels' measured gap relative to the analytic shell is 14–22 mm. Overall dimensions are unchanged. Validated N5→N6 top/side self-overlaps are 0.9974803/0.9972218. Neither number establishes reference-art accuracy.
+
+**Visual evidence:** [N5 side close-up](../qa/runs/2026-11-05-n5-engine-side.jpg) · [N6 side close-up](../qa/runs/2026-11-05-n6-engine-side.jpg) · [full N6 side](../qa/runs/2026-11-05-n6-fighter-side.jpg) · [N6 perspective](../qa/runs/2026-11-05-n6-perspective.jpg).
+
+The [exact experiment record](../qa/runs/2026-11-05-n5-n6-engine-side.json) documents what did and did not pass. No GERWALK/Battroid rig or production GLB replacement exists yet.
+
+
+## N7 — First continuous Fighter → GERWALK pivot study
+
+[Reproducible N7 rig source](rig_N7_from_N6.py) loads the saved N6 Blender output, retains all original Fighter meshes at frame 1, splits each nacelle at shared station 4 and keys rigid hip/knee/shoulder pivots on frames **1, 16, 31, 46, 61, 76, 91**. The original N6 build is untouched.
+
+Execute in **separate background Blender**, not the interactive console, once N6 is built:
+
+```bash
+blender --background --python blender/rig_N7_from_N6.py
+```
+
+On Windows via Omarchy/Blender MCP, the editable result is `C:\Users\BlenderAI\Documents\VF1J_reference_build\rebuild_N7\VF1J_rebuild_N7.blend`. Use Blender Timeline frames **1** for Fighter and **91** for a *preliminary* GERWALK pose. The script also generates side/front/three-quarter preview renders at 1/31/61/91.
+
+**QA:** all 47 N6 source mesh world vertex sets are preserved at frame 1 (rounding 1e-5 m); the seven test frames show maximum paired knee joint center discrepancy 0.000001 m; no scale changes in the leg/arm pivots. This is *kinematic continuity*, **not** proof of zero collisions or a real toy-transformable linkage. The resulting pose still lacks ankle/foot and elbow mechanics and has not been matched to original GERWALK drawings.
+
+Actual Blender images: [Fighter](../qa/runs/2026-11-05-n7-frame001-fighter.jpg) · [31](../qa/runs/2026-11-05-n7-frame031-transition.jpg) · [61](../qa/runs/2026-11-05-n7-frame061-transition.jpg) · [GERWALK prototype 91](../qa/runs/2026-11-05-n7-frame091-gerwalk-prototype.jpg) · [side 91](../qa/runs/2026-11-05-n7-frame091-side.jpg).
+
+[Validation code](../qa/validate_N7_rig.py) · [N7 evidence report](../qa/runs/2026-11-05-n6-n7-first-gerwalk-kinematics.json).
+
+The live website `dist/` and original GLB remain unchanged.

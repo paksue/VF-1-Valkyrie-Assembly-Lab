@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-05",
+  "work": "N4 Fighter engine-intake detailing checkpoint",
+  "variant": "1982 TV VF-1J Hikaru Ichijo (common airframe proxy from VF-1A 5-view)",
+  "sources": [
+    "https://www.macross2.net/m3/sdfmacross/vf-1a-valkyrie/vf-1a-schematics.png",
+    "https://macross2.net/m3/sdfmacross/vf-1j-valkyrie/schematic-vf1j-tias-all.png"
+  ],
+  "source_art_distributed": false,
+  "blender": "5.2.0 LTS Windows restricted BlenderAI account, isolated background via MCP on Omarchy",
+  "n4_model": "C:\\Users\\BlenderAI\\Documents\\VF1J_reference_build\\rebuild_N4\\VF1J_rebuild_N4.blend",
+  "model_sha256": "04cee7fbfca7e21fdda03aaa282fdcb14b745c777fb7acba0ee2146c8ddd5ee9",
+  "modification": "Added separately named gray intake lips, black intake throat, two guide vanes, and nacelle side panel + service hatch seam per side. Original airframe loft and swing-wing axes retained.",
+  "observed": {
+    "n3_model_mesh_objects": 39,
+    "n4_model_mesh_objects": 43,
+    "fighter_length_m_n3": 14.2337,
+    "fighter_length_m_n4": 14.2337,
+    "extended_wingspan_m_n3": 14.7852,
+    "extended_wingspan_m_n4": 14.7852,
+    "top": {
+      "frame": 1,
+      "reference": "common airframe 1800x1140 VF-1A 5-view",
+      "n3_occupancy_pixels_halfres": 34451,
+      "n4_occupancy_pixels_halfres": 34451,
+      "changed_pixels": 0,
+      "self_iou": 1
+    },
+    "side": {
+      "frame": 1,
+      "n3_occupancy_pixels_halfres": 29363,
+      "n4_occupancy_pixels_halfres": 29379,
+      "changed_pixels": 16,
+      "self_iou": 0.9994554
+    }
+  },
+  "review": {
+    "front": "Dark engine intakes now visible instead of solid white caps, though shape still too round versus technical reference.",
+    "side": "Engine side detailing subtle; full nacelle surface shape still simplified.",
+    "perspective": "Engine intake visible; overall silhouette preserved.",
+    "next": "Make the intake aperture more rectangular/rounded-rectangular and shape full nacelle casing; then rig transformation after Fighter accuracy review."
+  },
+  "remaining": [
+    "No reference IoU against independently registered VF-1J-specific art",
+    "No three-mode mechanical transformation in N4",
+    "No collision analysis or deployment into Three.js live site"
+  ],
+  "repo_scope": "Draft PR/feature branch only; dist and main unchanged",
+  "evidence_status": "Real Blender source, renders and measured self-regression; not reference accuracy certification"
+}
