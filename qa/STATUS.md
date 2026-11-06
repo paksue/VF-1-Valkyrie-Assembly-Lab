@@ -63,3 +63,17 @@ Current approved work is **only a draft QA branch**; the deployed Three.js works
 - [Actual N4 front Blender render](runs/2026-11-05-n4-front.jpg), [three-quarter render](runs/2026-11-05-n4-perspective.jpg), [reproducible source](../blender/rebuild_N4.py), [N4 QA evidence](runs/2026-11-05-n3-n4-intakes.json).
 - **Visual review:** front intake openings are now visible; they still look too circular relative to the flatter rounded-rectangular reference. Next geometry revision should reshape those apertures and build the nacelle casing from the correct 3D contours before rig development.
 - No three-mode rig, no website GLB change, no certification of overall shape accuracy.
+
+
+## N5 — 2026-11-05: rounded-rectangular inlets and open ducts
+
+**Actually executed** on Windows Blender 5.2 using the existing Omarchy MCP bridge; background subprocess preserved the interactive scene. The N5 editable .blend and four Fighter renders are saved to \`C:\Users\BlenderAI\Documents\VF1J_reference_build\rebuild_N5\`.
+
+- Replaced N4 circular black inlet faces with separate rounded-rectangle rim and duct wall meshes, and removed the front cap of each engine shell. Checked that each intake has zero front-cap polygons and 28 duct wall faces.
+- N5 mouth geometry per side is **0.484 × 0.394 m**. Front closeups from identical Blender cameras were inspected; unsupported cross-shaped intake dividers were removed.
+- Fighter **14.2337 m length**, frame-30 extended **14.7852 m wingspan**, and maximum frame-1 dimensions unchanged from N4.
+- Measured registered source-coordinate **N4→N5 self-regression**: top view unchanged (0 pixels, IoU 1.0); side view 72 changed pixels (IoU 0.9975551). This is *not* reference accuracy.
+- [Real N4 closeup](runs/2026-11-05-n4-intake-closeup.jpg) · [Real N5 closeup](runs/2026-11-05-n5-intake-closeup.jpg) · [N5 perspective](runs/2026-11-05-n5-perspective.jpg).
+- [Reproducible N5 source](../blender/rebuild_N5.py) · [Full observed QA report](runs/2026-11-05-n4-n5-intake-geometry.json).
+
+**Remaining:** independently evaluate against a locked VF-1J front and side technical drawing, rebuild actual engine nacelle casing geometry and other Fighter inaccuracies, then engineer a transformation rig and website GLB. No new model has been deployed to \`main\`.
