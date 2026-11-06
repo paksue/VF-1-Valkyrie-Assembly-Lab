@@ -20,3 +20,17 @@
 - Validate staged 3D geometry, render masks and multiple angle overlays before changing the production GLB.
 
 The website under \`dist/\` has not been modified.
+
+## Current candidate — N3 (visual marking pass)
+
+[N3 Blender source](rebuild_N3.py) was built with Blender 5.2 over the live Omarchy→Windows MCP connection in an isolated background process. Editable output is on Windows:
+\`C:\Users\BlenderAI\Documents\VF1J_reference_build\rebuild_N3\VF1J_rebuild_N3.blend\`.
+
+**What changed from N2:** wider red wing stripes and the more prominent chevron across the white shoulder-roof, as guided by the original VF-1J color sheet. No new transformation rig or major geometry. The evaluated Fighter length is 14.2337 m and extended span 14.7852 m as before.
+
+**Actual N3 renders:**
+- [Top view](../qa/runs/2026-11-05-n3-top.jpg)
+- [Three-quarter](../qa/runs/2026-11-05-n3-perspective.jpg)
+- [N2 top before](../qa/runs/2026-11-05-n2-top.jpg)
+
+See the [real top + side reference-registration method](../qa/REFERENCE_REGISTRATION.md). The next geometry pass should correct nacelle/intake and rear underside proportions from reference drawings, then revisit head and mechanism.
