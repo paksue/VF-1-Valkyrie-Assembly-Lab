@@ -67,3 +67,23 @@ The new side panels' measured gap relative to the analytic shell is 14–22 mm. 
 
 The [exact experiment record](../qa/runs/2026-11-05-n5-n6-engine-side.json) documents what did and did not pass. No GERWALK/Battroid rig or production GLB replacement exists yet.
 
+
+## N7 — First continuous Fighter → GERWALK pivot study
+
+[Reproducible N7 rig source](rig_N7_from_N6.py) loads the saved N6 Blender output, retains all original Fighter meshes at frame 1, splits each nacelle at shared station 4 and keys rigid hip/knee/shoulder pivots on frames **1, 16, 31, 46, 61, 76, 91**. The original N6 build is untouched.
+
+Execute in **separate background Blender**, not the interactive console, once N6 is built:
+
+```bash
+blender --background --python blender/rig_N7_from_N6.py
+```
+
+On Windows via Omarchy/Blender MCP, the editable result is `C:\Users\BlenderAI\Documents\VF1J_reference_build\rebuild_N7\VF1J_rebuild_N7.blend`. Use Blender Timeline frames **1** for Fighter and **91** for a *preliminary* GERWALK pose. The script also generates side/front/three-quarter preview renders at 1/31/61/91.
+
+**QA:** all 47 N6 source mesh world vertex sets are preserved at frame 1 (rounding 1e-5 m); the seven test frames show maximum paired knee joint center discrepancy 0.000001 m; no scale changes in the leg/arm pivots. This is *kinematic continuity*, **not** proof of zero collisions or a real toy-transformable linkage. The resulting pose still lacks ankle/foot and elbow mechanics and has not been matched to original GERWALK drawings.
+
+Actual Blender images: [Fighter](../qa/runs/2026-11-05-n7-frame001-fighter.jpg) · [31](../qa/runs/2026-11-05-n7-frame031-transition.jpg) · [61](../qa/runs/2026-11-05-n7-frame061-transition.jpg) · [GERWALK prototype 91](../qa/runs/2026-11-05-n7-frame091-gerwalk-prototype.jpg) · [side 91](../qa/runs/2026-11-05-n7-frame091-side.jpg).
+
+[Validation code](../qa/validate_N7_rig.py) · [N7 evidence report](../qa/runs/2026-11-05-n6-n7-first-gerwalk-kinematics.json).
+
+The live website `dist/` and original GLB remain unchanged.
