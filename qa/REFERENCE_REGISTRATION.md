@@ -28,3 +28,8 @@ The source images were fetched into the restricted Windows BlenderAI QA folder f
 3. Develop shared-parts transformation rig, verify intermediate collision frames and load a staged GLB into the existing website.
 
 This is evidence of an actual review loop. It is **not** a claim that the complete aircraft or transformation is accurate.
+
+## New side-view registration
+- \`qa/project_side_N3.py\` projects N3's evaluated mesh triangles into the **side view** on the same VF-1A five-view sheet using \`u=(model_y+7.115)/S+414\`, \`v=975-model_z/S\`.
+- A local side overlay was generated and visually reviewed. The nose/canopy silhouette aligns relatively well to the drawing; the large engine nacelle and rear underside sections remain less accurate.
+- This is **visual correspondence**, not a ground-truth IoU. It must not be conflated with a VF-1J-specific livery accuracy test.
