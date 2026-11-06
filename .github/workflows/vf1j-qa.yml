@@ -6,10 +6,12 @@ on:
       - "vf1j-reference-qa-*"
     paths:
       - "qa/**"
+      - "blender/**"
       - ".github/workflows/vf1j-qa.yml"
   pull_request:
     paths:
       - "qa/**"
+      - "blender/**"
       - ".github/workflows/vf1j-qa.yml"
   workflow_dispatch:
 
@@ -28,4 +30,4 @@ jobs:
       - name: Unit test mask metrics
         run: python -m unittest discover -s qa -p 'test_*.py' -v
       - name: Syntax check Blender background runner
-        run: python -m py_compile qa/render_views.py
+        run: python -m py_compile qa/render_views.py qa/project_reference_N3.py qa/project_side_N3.py blender/rebuild_N2.py blender/rebuild_N3.py
