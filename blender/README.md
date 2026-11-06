@@ -34,3 +34,21 @@ The website under \`dist/\` has not been modified.
 - [N2 top before](../qa/runs/2026-11-05-n2-top.jpg)
 
 See the [real top + side reference-registration method](../qa/REFERENCE_REGISTRATION.md). The next geometry pass should correct nacelle/intake and rear underside proportions from reference drawings, then revisit head and mechanism.
+
+## Latest candidate — N5 (real intake topology)
+
+[N5 source generator](rebuild_N5.py) builds in isolated Blender 5.2, saving:
+
+\`C:\Users\BlenderAI\Documents\VF1J_reference_build\rebuild_N5\VF1J_rebuild_N5.blend\`
+
+N5's changes from N4:
+- Replace painted circular intakes with named **rounded-rectangular rings**, converging wall geometry, and recessed black throats.
+- Remove the engine-shell front cap to leave an actual mouth. The opening is 0.484 m wide × 0.394 m high per side.
+- Reduce the engine nacelle's loft exponent from 0.43 to 0.25, yielding flatter and more angular surfaces.
+- Retain two subtle guide vanes; remove an unsupported vertical divider.
+
+**Actual Blender comparison renders:** [N4 intake closeup](../qa/runs/2026-11-05-n4-intake-closeup.jpg) versus [N5 intake closeup](../qa/runs/2026-11-05-n5-intake-closeup.jpg); [N5 perspective](../qa/runs/2026-11-05-n5-perspective.jpg).
+
+[QA evidence](../qa/runs/2026-11-05-n4-n5-intake-geometry.json): 0 top projected pixels changed, 72 side projected pixels changed, 0 front-cap faces at either intake. This is a **regression check**, not an independently verified Macross-reference fidelity score.
+
+N5 remains Fighter-only. A physically credible GERWALK/Battroid transformation and site GLB export are **not** complete. Model surface details, head, landing gear, nacelle shape and joint clearances remain to be verified against original design art.
