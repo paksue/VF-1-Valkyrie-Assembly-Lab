@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-05",
+  "checkpoint": "N7",
+  "task": "First continuous Fighter-to-GERWALK kinematic study built from N6 editable Blender file",
+  "builder": "ChatGPT -> DevSpace Omarchy -> Blender MCP -> restricted Windows background Blender 5.2 LTS",
+  "saved_blend": "C:\\Users\\BlenderAI\\Documents\\VF1J_reference_build\\rebuild_N7\\VF1J_rebuild_N7.blend",
+  "blend_sha256": "f70e2bf1647ac171db6a9b9e27891a4599f3773acda166871f0da8e84080063c",
+  "source_script": "blender/rig_N7_from_N6.py",
+  "qa_script": "qa/validate_N7_rig.py",
+  "proof": {
+    "n6_meshes_at_start": 47,
+    "n7_meshes": 49,
+    "fighter_frame1_fidelity": "All 47 N6 source mesh world vertex sets preserved exactly within 1e-5 m, including the two nacelle casings split without changing surface geometry",
+    "actual_split": "Each original N6 13-station engine shell split into upper stations 0..4 and lower stations 4..12 at u=1125; same shared ring",
+    "joints": "2 nested hip/knee chains and 2 shoulder deployment pivots; existing wing sweep retained; keyed rigid transforms (no scale changes)",
+    "animation_keyframes": [
+      1,
+      16,
+      31,
+      46,
+      61,
+      76,
+      91
+    ],
+    "final_keyframe_degrees": {
+      "hip_x": -70,
+      "knee_x": 35,
+      "shoulder_x": -62
+    },
+    "max_hinge_center_discrepancy_m": 0.000001,
+    "max_hinge_center_motion_between_15_frame_checkpoints_m": 0.4368,
+    "tested_unity_scale": true,
+    "parent_hierarchy_verified": true,
+    "actual_render_views": "3 views at each frame 1,31,61,91 (12 renders total)",
+    "endpoint_visual_review": "First-pass GERWALK with bent leg assemblies and extended wings; neither anime proportions nor mechanical clearances certified"
+  },
+  "known_limits": [
+    "Not a finished or accurate Macross GERWALK; legs and elbows lack detailed linkages, toe/heel nozzle feet absent",
+    "No comprehensive mesh intersection / collision clearance test",
+    "N7 does not include Battroid or seamless transition to it",
+    "Fighter body remains fixed while limbs deploy in this first study",
+    "No independent VF-1J reference-art overlay score for GERWALK",
+    "No N7 GLB export or Three.js website integration"
+  ],
+  "original_site_status": "Production dist/ and main unchanged; N7 work only on draft PR",
+  "reference_source": "Earlier K/L2 poses studied but not imported. The existing 1982 VF-1J and VF-1A common airframe references remain visual targets."
+}
