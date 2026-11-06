@@ -52,3 +52,18 @@ N5's changes from N4:
 [QA evidence](../qa/runs/2026-11-05-n4-n5-intake-geometry.json): 0 top projected pixels changed, 72 side projected pixels changed, 0 front-cap faces at either intake. This is a **regression check**, not an independently verified Macross-reference fidelity score.
 
 N5 remains Fighter-only. A physically credible GERWALK/Battroid transformation and site GLB export are **not** complete. Model surface details, head, landing gear, nacelle shape and joint clearances remain to be verified against original design art.
+
+## Current candidate — N6: contoured nacelle and separate side armor
+
+The [N6 reproducible Blender generator](rebuild_N6.py) saves a Fighter-only editable asset on Windows:
+
+\`C:\Users\BlenderAI\Documents\VF1J_reference_build\rebuild_N6\VF1J_rebuild_N6.blend\`
+
+Compared with N5, the two engine/leg casings use 13 longitudinal stations instead of six, retain the open rounded-rectangular intakes, and have independent detachable armor-group empties parented to the existing unrigged nacelle joints. Side panel details follow the original VF-1 common-airframe reference as a **manual interpretation**, not an exact toy scan.
+
+The new side panels' measured gap relative to the analytic shell is 14–22 mm. Overall dimensions are unchanged. Validated N5→N6 top/side self-overlaps are 0.9974803/0.9972218. Neither number establishes reference-art accuracy.
+
+**Visual evidence:** [N5 side close-up](../qa/runs/2026-11-05-n5-engine-side.jpg) · [N6 side close-up](../qa/runs/2026-11-05-n6-engine-side.jpg) · [full N6 side](../qa/runs/2026-11-05-n6-fighter-side.jpg) · [N6 perspective](../qa/runs/2026-11-05-n6-perspective.jpg).
+
+The [exact experiment record](../qa/runs/2026-11-05-n5-n6-engine-side.json) documents what did and did not pass. No GERWALK/Battroid rig or production GLB replacement exists yet.
+
