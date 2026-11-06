@@ -42,3 +42,14 @@ The existing \`dist/\` site and production GLB are unchanged. The present work i
 - The GitHub Actions \`VF-1J verification tools\` job passed for commit \`fe3a2c8\`, run [42132511073](https://github.com/paksue/VF-1-Valkyrie-Assembly-Lab/actions/runs/42132511073).
 - CI covered Python dependencies, five synthetic mask-comparison tests and syntax compilation of \`qa/render_views.py\`.
 - CI **did not** execute Blender itself, compare licensed reference drawings, or validate transformation. Those remain independent gates.
+
+## N3 follow-up — 2026-11-05
+- Downloaded **full native-resolution reference sheets** to restricted Windows QA: VF-1A five-view (1800×1140, SHA256 \`8bcf718bbe1f4e5d57038225d4a47d28bebff96e72b1496e3eb13f159a21ae55\`) and VF-1J schematic (1300×1208, SHA256 \`b638bb6a00eaf7d2550cc49ffb9f60cf60d51e99e8bbfe08100788587a038b0e\`). Images were not published.
+- Developed and ran **actual evaluated mesh triangle projection** into the source VF-1A top and side drawing coordinates; inspected the registered overlays. This is more reliable than resizing two screenshots to appear aligned.
+- Built \`rebuild_N3.py\` through Windows Blender 5.2 over MCP as a **separate background process**, producing new editable .blend and Fighter renders. VF-1J-style red shoulder-chevron and wing-stripe width revised.
+- N2→N3 top silhouette self-IoU: **0.9999419**, only two half-resolution projected occupancy pixels changed; Fighter length and extended wingspan unchanged. Red-marking pixels on equal-size top renders increased from 19,742 to 40,755. **Neither value is reference accuracy**.
+- Inspected side overlay: nose and canopy follow the common-airframe drawing reasonably closely, but engine nacelles, intake volumes, rear underside profile and head details remain less faithful. These are the next geometry correction priorities.
+- Actual Blender render previews: [N2 top](runs/2026-11-05-n2-top.jpg), [N3 top](runs/2026-11-05-n3-top.jpg), [N3 perspective](runs/2026-11-05-n3-perspective.jpg). See [full N3 evidence JSON](runs/2026-11-05-n2-n3-livery.json).
+- **Still not done:** registered VF-1J colored-sheet pixel metrics, GERWALK/Battroid mechanical rig for N3, intermediate-frame collision tests, or website GLB replacement.
+
+Current approved work is **only a draft QA branch**; the deployed Three.js workshop and GitHub \`main\` remain unchanged.
