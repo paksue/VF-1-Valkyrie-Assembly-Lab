@@ -53,3 +53,13 @@ The existing \`dist/\` site and production GLB are unchanged. The present work i
 - **Still not done:** registered VF-1J colored-sheet pixel metrics, GERWALK/Battroid mechanical rig for N3, intermediate-frame collision tests, or website GLB replacement.
 
 Current approved work is **only a draft QA branch**; the deployed Three.js workshop and GitHub \`main\` remain unchanged.
+
+
+## N4 — Recessed twin intakes, 2026-11-05
+- Constructed an isolated editable Blender N4 Fighter checkpoint from N3, adding intake lips, dark throats, vane details, and independently named nacelle side seams/hatches.
+- Background Blender 5.2 completed the four standard renders and saved \`C:\Users\BlenderAI\Documents\VF1J_reference_build\rebuild_N4\VF1J_rebuild_N4.blend\`. The running UI scene was not modified.
+- Evaluated mesh count increased from 39 to **43**. Overall aircraft geometry remains 14.2337 m length and 14.7852 m extended span.
+- A pixel-aligned projection onto the VF-1A five-view common airframe showed top mask **0 pixel change** and side mask **16 pixel change** (N3→N4). Self-comparison is NOT a reference-fidelity grade.
+- [Actual N4 front Blender render](runs/2026-11-05-n4-front.jpg), [three-quarter render](runs/2026-11-05-n4-perspective.jpg), [reproducible source](../blender/rebuild_N4.py), [N4 QA evidence](runs/2026-11-05-n3-n4-intakes.json).
+- **Visual review:** front intake openings are now visible; they still look too circular relative to the flatter rounded-rectangular reference. Next geometry revision should reshape those apertures and build the nacelle casing from the correct 3D contours before rig development.
+- No three-mode rig, no website GLB change, no certification of overall shape accuracy.
