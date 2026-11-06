@@ -90,3 +90,14 @@ Current approved work is **only a draft QA branch**; the deployed Three.js works
 - [Source script](../blender/rebuild_N6.py) · [verified QA report](runs/2026-11-05-n5-n6-engine-side.json).
 - **Open:** independent VF-1J-specific view registration and contour score, real three-mode rig and collision validation, GLB export/website integration. No updates to \`dist/\` or \`main\`.
 
+
+## N7 — Fighter-to-GERWALK rig proof (2026-11-05)
+- Inspected existing **K/L2** three-mode manually authored pose study, which is *not* a mechanically validated animation. The new **N7** uses the real N6 Fighter geometry instead.
+- Generated an editable separate Blender 5.2 source at `C:\Users\BlenderAI\Documents\VF1J_reference_build\rebuild_N7\VF1J_rebuild_N7.blend` (SHA-256 `f70e2bf1647ac171db6a9b9e27891a4599f3773acda166871f0da8e84080063c`).
+- Added two actual hip+knee pivot chains by splitting both **13-station nacelle meshes** at their shared station 4. Shoulder-deployment pivots animate the existing folded arm shells; wing sweep is inherited from N6. All use **rigid keyframed transforms**, without scaling/teleporting source components.
+- **Hard source preservation gate passed:** all **47 N6 original mesh world-vertex sets** match N7 Fighter at frame 1 to 1e-5 m. N7 has 49 mesh objects due to two split shells.
+- **Mechanical center continuity passed:** at frames 1, 16, 31, 46, 61, 76, 91, the matching upper/lower knee-ring centers disagree by **no more than 0.000001 m**. Parent chains verified; no sampled joint scaling.
+- Rendered **12 actual Blender views** covering frames 1, 31, 61, 91. Sources: [Fighter frame 1](runs/2026-11-05-n7-frame001-fighter.jpg), [early transition 31](runs/2026-11-05-n7-frame031-transition.jpg), [later transition 61](runs/2026-11-05-n7-frame061-transition.jpg), [GERWALK *prototype* 91](runs/2026-11-05-n7-frame091-gerwalk-prototype.jpg), [91 side](runs/2026-11-05-n7-frame091-side.jpg).
+- [Rebuild script](../blender/rig_N7_from_N6.py) · [rig validation](validate_N7_rig.py) · [experiment report](runs/2026-11-05-n6-n7-first-gerwalk-kinematics.json).
+- **Unresolved:** no collision-verified linkage, engineering-accurate leg/foot deployment, elbow mechanics, physically grounded GERWALK proportions, Battroid rig or website GLB integration. This is an **early continuous kinematics checkpoint**, not finished GERWALK. The website and main branch remain unchanged.
+
