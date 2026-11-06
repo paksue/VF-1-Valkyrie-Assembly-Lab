@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-05",
+  "target": "VF-1J Hikaru Ichijo (TV era)",
+  "source_for_common_airframe": "https://www.macross2.net/m3/sdfmacross/vf-1a-valkyrie/vf-1a-schematics.png",
+  "source_for_livery": "https://macross2.net/m3/sdfmacross/vf-1j-valkyrie/schematic-vf1j-tias-all.png",
+  "reference_files_local_only": true,
+  "reference_source_sha256": {
+    "vf1a_fiveview": "8bcf718bbe1f4e5d57038225d4a47d28bebff96e72b1496e3eb13f159a21ae55",
+    "vf1j_schematic": "b638bb6a00eaf7d2550cc49ffb9f60cf60d51e99e8bbfe08100788587a038b0e"
+  },
+  "method": "Windows Blender 5.2 isolated background build N2 and N3; registered top silhouette in native VF-1A 1800x1140 source pixel coordinate system; model evaluated vertices triangle projection; rendering four views; inspected actual perspective and top views",
+  "checkpoint": {
+    "N2": "rebuild_N2/VF1J_rebuild_N2.blend",
+    "N3": "rebuild_N3/VF1J_rebuild_N3.blend"
+  },
+  "blender_source_sha256": {
+    "N2": "0486a01c30142a71fa94238bb3d2eaaccde5251f22dec4ce7b8861931ce81306",
+    "N3": "472f0a376900c2f049b6119cc47b6c47b744a4b390d93990b531cb1b2584f5ea"
+  },
+  "new_modification": "Increase red shoulder V band and wing red stripe widths based on 1982 VF-1J schematic visual inspection, retaining geometry and 26.5-degree N2 wing-sweep pose.",
+  "measurements": {
+    "frame1_fighter_length_m": 14.2337,
+    "frame30_extended_wingspan_m": 14.7852,
+    "N2_projected_half_top_mask_pixels": 34453,
+    "N3_projected_half_top_mask_pixels": 34451,
+    "difference_pixels": 2,
+    "N2_N3_self_silhouette_iou": 0.9999419,
+    "N2_red_pixels_in_top_render": 19742,
+    "N3_red_pixels_in_top_render": 40755,
+    "render_size": [
+      1200,
+      900
+    ]
+  },
+  "passed": [
+    "Blender Python build completed and saved .blend",
+    "Four camera renders generated",
+    "N3 dimensions unchanged from N2",
+    "Common-airframe self-silhouette difference 2 pixels",
+    "Blender GUI user scene remains separate"
+  ],
+  "not_passing_yet": [
+    "No registered VF-1J-specific red-livery pixel score",
+    "No GERWALK/Battroid rig in N3",
+    "No full accuracy grade",
+    "No replacement GLB website integration"
+  ],
+  "artifact_directory_windows": "C:\\Users\\BlenderAI\\Documents\\VF1J_reference_build",
+  "caution": "N2-to-N3 self-IoU cannot demonstrate reference accuracy; color coverage is not an accuracy score. Original VF-1A provides shared airframe top reference only."
+}
