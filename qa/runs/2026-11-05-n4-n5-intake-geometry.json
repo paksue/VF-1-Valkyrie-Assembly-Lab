@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-05",
+  "milestone": "N5 Fighter intake and nacelle geometry refinement",
+  "environment": "Blender 5.2 LTS background build on Windows BlenderAI, controlled by Omarchy DevSpace MCP",
+  "source_model": "blender/rebuild_N5.py",
+  "blend_path_windows": "C:\\Users\\BlenderAI\\Documents\\VF1J_reference_build\\rebuild_N5\\VF1J_rebuild_N5.blend",
+  "blend_sha256": "fc3de7f107cbd18f1f4d00fbb6b588861697e33e9930581ca64b5c1397aa0883",
+  "comparison_reference": {
+    "common_airframe": "https://www.macross2.net/m3/sdfmacross/vf-1a-valkyrie/vf-1a-schematics.png",
+    "vf1j_identification": "https://macross2.net/m3/sdfmacross/vf-1j-valkyrie/schematic-vf1j-tias-all.png",
+    "source_art_added_to_repository": false
+  },
+  "modifications": [
+    "Replaced N4 circular inlet rings with rounded-rectangular 28-vertex aperture per side",
+    "Removed artificial solid front cap from each engine shell and added converging hollow intake duct with dark throat",
+    "Flattened nacelle cross sections using exponent 0.25 instead of 0.43 (source-interpretive; further comparison required)",
+    "Retained two subtle horizontal guide vanes; removed an unsupported cross-shaped internal divider"
+  ],
+  "actual_blender_measures": {
+    "mesh_objects_n4": 43,
+    "mesh_objects_n5": 45,
+    "overall_length_m": 14.2337,
+    "frame1_wingspan_m": 12.4966,
+    "frame30_extended_wingspan_m": 14.7852,
+    "airframe_height_m": 3.6788,
+    "each_intake_mouth_width_m": 0.484,
+    "each_intake_mouth_height_m": 0.394,
+    "rim_vertices_per_side": 56,
+    "inner_duct_faces_per_side": 28,
+    "engine_shell_front_cap_faces_per_side": 0
+  },
+  "shape_regression": {
+    "method": "Pixel-aligned evaluated Blender triangle projections onto common-airframe VF-1A five-view; half-resolution masks; exact N4/N5 same projection",
+    "top": {
+      "N4_pixels": 34451,
+      "N5_pixels": 34451,
+      "changed_pixels": 0,
+      "self_iou": 1
+    },
+    "side": {
+      "N4_pixels": 29379,
+      "N5_pixels": 29447,
+      "changed_pixels": 72,
+      "self_iou": 0.9975551
+    },
+    "significance": "N4-to-N5 geometry retention only; NOT score vs source art"
+  },
+  "visual_review": [
+    "Close-up N4 engine intakes were circular black disks; N5 are visibly rounded-rectangular with recessed interior",
+    "N5 front view displays two symmetrical inlets; final version has no unsupported vertical divider",
+    "Three-quarter view shows the new dark openings below the wing root"
+  ],
+  "local_artifacts": [
+    "rebuild_N4/intakes_closeup_front.png",
+    "rebuild_N5/intakes_closeup_front.png",
+    "rebuild_N5/fighter_top.png",
+    "rebuild_N5/fighter_front.png",
+    "rebuild_N5/fighter_side.png",
+    "rebuild_N5/fighter_threequarter.png",
+    "qa_reference/vf1a_N5_model_registered_overlay.png",
+    "qa_reference/vf1a_N5_side_registered_overlay.png",
+    "qa_reference/N4_to_N5_acceptance.json"
+  ],
+  "limitations": [
+    "No independently registered VF-1J-specific source silhouette mask or source-grounded IoU",
+    "Fighter-only geometry: GERWALK and Battroid transformation not implemented in N5",
+    "Interior airflow, shell intersection and moving mechanical clearances not validated",
+    "No N5 exported GLB or public website deployment",
+    "Fighter height measured via bound vertices; not necessarily same convention as fictional height including landing gear"
+  ],
+  "status": "N5 accepted as isolated geometry checkpoint. Main website and original GLB unchanged."
+}
